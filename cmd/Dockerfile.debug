@@ -1,0 +1,8 @@
+# Base Builder 
+FROM golang:1.15.2
+WORKDIR /go-gca
+RUN apt-get install git
+RUN go get github.com/go-delve/delve/cmd/dlv
+COPY go.mod .
+COPY go.sum .
+RUN go mod download
